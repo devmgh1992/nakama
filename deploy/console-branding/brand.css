@@ -1,0 +1,72 @@
+/* Gayvelopers skin for the Nakama console (injected through nginx sub_filter).
+   Flat colours only — ink #0E0F12, paper #F1F1EC, lime #C8F560. */
+
+html, body { background: #F1F1EC !important; }
+
+[data-gv-route="login"] [class*="bg-white"] { background-color: #F1F1EC !important; }
+
+/* ---------- right-hand hero panel (login) ---------- */
+[data-gv-route="login"] [class*="from-primary-900"] {
+  background-color: #0E0F12 !important;
+  background-image: url("/branding/banner.svg") !important;
+  background-size: cover !important;
+  background-position: center 40% !important;
+  background-repeat: no-repeat !important;
+}
+[data-gv-route="login"] [class*="from-primary-900"] > * { display: none !important; }
+
+/* ---------- headings ---------- */
+[data-gv-route="login"] h1.text-display4 {
+  color: #0E0F12;
+  letter-spacing: -0.035em;
+}
+[data-gv-route="login"] .gv-sub {
+  margin: 10px 0 26px;
+  color: #73747C;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* ---------- inputs ---------- */
+[data-gv-route="login"] [style*="--x-input-border"] { --x-input-border: #0E0F12 !important; }
+[data-gv-route="login"] input {
+  border-radius: 11px !important;
+  border-color: #DEDED6 !important;
+  background-color: #FFFFFF !important;
+}
+[data-gv-route="login"] input:focus { border-color: #0E0F12 !important; }
+
+/* ---------- primary button: ink block, lime label ---------- */
+[data-gv-route="login"] .x-button {
+  --x-button-bg: #0E0F12 !important;
+  --x-button-bg-hover: #22252B !important;
+  --x-button-bg-active: #000000 !important;
+  --x-button-dark-bg: #0E0F12 !important;
+  --x-button-dark-bg-hover: #22252B !important;
+  --x-button-dark-bg-active: #000000 !important;
+  --x-button-border: #0E0F12 !important;
+  --x-button-text: #C8F560 !important;
+  outline-color: #0E0F12 !important;
+  color: #C8F560 !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  min-height: 44px;
+}
+
+/* ---------- injected footer badge ---------- */
+.gv-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid #E2E2DC;
+  font-size: 12px;
+  font-weight: 700;
+  color: #73747C;
+  letter-spacing: 0.02em;
+}
+.gv-badge img { width: 22px; height: 22px; border-radius: 6px; }
+.gv-badge b { color: #0E0F12; font-weight: 800; }
+.gv-badge .gv-dot { width: 6px; height: 6px; border-radius: 50%; background: #6BBF3E; display: inline-block; }
