@@ -29,12 +29,15 @@ Realtime (WebSocket) uses the same host on the `/ws` path:
 
 ## Two kinds of authentication
 
-| Credential | Header | Used for |
-|---|---|---|
-| **Server key** | `Authorization: Basic ZGVmYXVsdGtleTo=` (username `defaultkey`, empty password) | Login and registration endpoints only. Never ship it inside a game client. |
-| **Session token** | `Authorization: Bearer <token>` | Every endpoint that acts on behalf of a player. |
+**Player session token** — `Authorization: Bearer <session_token>`
+Every endpoint that acts on behalf of a player. Returned by any `/v2/account/authenticate/*` call, valid 2 hours.
 
-Server key as a ready-to-paste header: `Authorization: Basic ZGVmYXVsdGtleTo=`
+**Server key** — `Authorization: Basic ZGVmYXVsdGtleTo=`
+That header is the literal base64 of `defaultkey:` (username = server key, empty password).
+Only login and registration endpoints accept it — never ship it inside a game client.
+
+**Runtime HTTP key** — `?http_key=<key>`
+Server-to-server calls to RPC endpoints. Server side only.
 
 ## Player lifecycle in three calls
 
