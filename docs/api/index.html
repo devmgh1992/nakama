@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nakama API Reference</title>
+<style>
+  :root{--bg:#0b0f17;--line:#1d2634;--txt:#e6edf3;--dim:#8b98a9;--accent:#00d1a7;
+    --font: ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  html,body{margin:0;background:var(--bg);font-family:var(--font);color:var(--txt)}
+  #topbar{position:sticky;top:0;z-index:9999;height:52px;display:flex;align-items:center;gap:14px;
+    padding:0 18px;background:var(--bg);border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
+  .logo{width:26px;height:26px;border-radius:7px;background:var(--accent);display:grid;place-items:center}
+  .ver{font:600 11px/1 var(--font);color:#081014;background:var(--accent);padding:4px 7px;border-radius:5px}
+  .spacer{flex:1}
+  a{color:var(--dim);text-decoration:none;font-size:13px;padding:7px 11px;border:1px solid var(--line);border-radius:7px}
+  a:hover{color:var(--txt);border-color:#33415a}
+  #app{height:calc(100vh - 52px);overflow:auto}
+</style>
+</head>
+<body>
+<header id="topbar">
+  <div class="brand">
+    <span class="logo"><svg width="16" height="16" viewBox="0 0 32 32"><path d="M9 23V9l14 14V9" stroke="#081014" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    Nakama API <span class="ver">v2 · 3.42</span>
+  </div>
+  <div class="spacer"></div>
+  <a href="./openapi.yaml" download>Download spec</a>
+</header>
+<div id="app"></div>
+<script src="https://cdn.jsdelivr.net/npm/@scalar/api-reference@1.82.1/dist/browser/standalone.js"></script>
+<script>
+  Scalar.createApiReference('#app', {
+    url: './openapi.yaml',
+    theme: 'deep-space',
+    darkMode: true,
+    layout: 'modern',
+    withDefaultFonts: false,
+    telemetry: false,
+    showDeveloperTools: 'never',
+    documentDownloadType: 'both',
+    defaultHttpClient: { targetKey: 'csharp', clientKey: 'httpclient' },
+    metaData: { title: 'Nakama API Reference' },
+    customCss: `:root{--scalar-font:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      --scalar-font-code:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      --scalar-color-accent:#00d1a7;--scalar-background-1:#0b0f17;--scalar-background-2:#0e1420;
+      --scalar-background-3:#121a28;--scalar-color-1:#e6edf3;--scalar-color-2:#b6c2d2;--scalar-color-3:#8b98a9;
+      --scalar-border-color:#1d2634;--scalar-radius:8px;}`,
+  });
+</script>
+</body>
+</html>
